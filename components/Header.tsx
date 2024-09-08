@@ -1,0 +1,133 @@
+import Link from "next/link";
+import { Popover } from "@headlessui/react";
+import { Container } from "./Container";
+import { NavLinks } from "./NavLinks";
+import SignIn from "../app/(login)/login";
+import SignUp from "../app/(login)/register";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+
+function MenuIcon(props: React.ComponentPropsWithoutRef<"svg">) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <path
+        d="M5 6h14M5 18h14M5 12h14"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ChevronUpIcon(props: React.ComponentPropsWithoutRef<"svg">) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <path
+        d="M17 14l-5-5-5 5"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function MobileNavLink(
+  props: Omit<
+    React.ComponentPropsWithoutRef<typeof Popover.Button<typeof Link>>,
+    "as" | "className"
+  >
+) {
+  return (
+    <Popover.Button
+      as={Link}
+      className="block text-base leading-7 tracking-tight text-gray-700"
+      {...props}
+    />
+  );
+}
+
+export default function Header() {
+  return (
+    <>
+      <nav>
+        <Container className="relative z-50 flex justify-between py-4 bg-white/20 ring-1 ring-black/10 rounded-md">
+          <div className="relative z-10 flex items-center gap-16">
+            <Link href="/" aria-label="Home">
+              <Image src="/images/logo_icon_big.png" alt="logo" width={60} height={60} />
+            </Link>
+          </div>
+          <div className="hidden lg:flex text-lefet lg:gap-10 self-center">
+            <NavLinks />
+          </div>
+
+          <div className="flex items-center gap-6">
+            <Popover className="lg:hidden">
+              {({ open }) => (
+                <>
+                  <Popover.Button
+                    className="relative z-10 -m-2 inline-flex items-center rounded-lg stroke-gray-900 p-2 hover:bg-gray-200/50 hover:stroke-gray-600 active:stroke-gray-900 ui-not-focus-visible:outline-none"
+                    aria-label="Toggle site navigation"
+                  >
+                    {({ open }) =>
+                      open ? (
+                        <ChevronUpIcon className="h-6 w-6" />
+                      ) : (
+                        <MenuIcon className="h-6 w-6" />
+                      )
+                    }
+                  </Popover.Button>
+                  <AnimatePresence initial={false}>
+                    {open && (
+                      <>
+                        <Popover.Panel
+                          static
+                          as={motion.div}
+                          initial={{ opacity: 0, y: -32 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{
+                            opacity: 0,
+                            y: -32,
+                            transition: { duration: 0.2 },
+                          }}
+                          className="fixed inset-x-0 top-0 z-0 origin-top rounded-b-2xl bg-gray-50 px-6 pb-6 pt-32 shadow-2xl shadow-gray-900/20"
+                        >
+                          <div className="space-y-8">
+                            <MobileNavLink href="/#features">
+                              Features
+                            </MobileNavLink>
+                            <MobileNavLink href="/#reviews">
+                              Reviews
+                            </MobileNavLink>
+                            <MobileNavLink href="/#blog">Blog</MobileNavLink>
+                            <MobileNavLink href="/#faqs">FAQs</MobileNavLink>
+                            <MobileNavLink href="/#">
+
+                            </MobileNavLink>
+
+                            <div className="mt-8 flex flex-row gap-4">
+                              <SignIn className="btn-blue-outline btn-outline"
+                              />
+                              <SignUp className="btn-slate btn-solid"
+                              />
+                            </div>
+                          </div>
+
+                        </Popover.Panel>
+                      </>
+                    )}
+                  </AnimatePresence >
+                </>
+              )
+              }
+            </Popover >
+
+            <SignIn className="hidden lg:block btn-blue-outline btn-outline" />
+            <SignUp className="hidden lg:block btn-slate btn-solid" />
+          </div >
+        </Container >
+      </nav >
+    </>
+  );
+}
