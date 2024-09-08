@@ -47,12 +47,12 @@ export default function Hero2() {
         <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
 
           <h1 className="mt-10 text-4xl tracking-tight text-slate-900 sm:text-6xl">
-            We give your ChatGPT hands
+            Give ChatGPT hands
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-800">
             You are looking for the next AI thing. <br />
             We are building it. <br />
-            Start the future today.
+            Let AI work for you today.
           </p>
           <div className="mt-8 flex justify-left gap-x-6">
             <Link href='https://x.com/playbacknet' className='btn-slate btn-solid'>Request early access</Link>
@@ -61,7 +61,7 @@ export default function Hero2() {
             >
               <svg
                 aria-hidden="true"
-                className="h-3 w-3 flex-none fill-green-700 group-active:fill-current"
+                className="h-3 w-3 flex-none fill-green-800 group-active:fill-current"
               >
                 <path d="m9.997 6.91-7.583 3.447A1 1 0 0 1 1 9.447V2.553a1 1 0 0 1 1.414-.91L9.997 5.09c.782.355.782 1.465 0 1.82Z" />
               </svg>
