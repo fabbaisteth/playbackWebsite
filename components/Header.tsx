@@ -2,10 +2,9 @@ import Link from "next/link";
 import { Popover } from "@headlessui/react";
 import { Container } from "./Container";
 import { NavLinks } from "./NavLinks";
-import SignIn from "../app/(login)/login";
-import SignUp from "../app/(login)/register";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import Newsletter from "./Newsletter";
 
 function MenuIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
@@ -107,10 +106,7 @@ export default function Header() {
                             </MobileNavLink>
 
                             <div className="mt-8 flex flex-row gap-4">
-                              <SignIn className="btn-blue-outline btn-outline"
-                              />
-                              <SignUp className="btn-slate btn-solid"
-                              />
+                              <Newsletter />
                             </div>
                           </div>
 
@@ -123,8 +119,7 @@ export default function Header() {
               }
             </Popover >
 
-            <SignIn className="hidden lg:block btn-blue-outline btn-outline" />
-            <SignUp className="hidden lg:block btn-slate btn-solid" />
+            <Newsletter className="hidden lg:block btn-blue-outline btn-outline" />
           </div >
         </Container >
       </nav >
