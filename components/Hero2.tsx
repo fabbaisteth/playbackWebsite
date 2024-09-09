@@ -2,7 +2,7 @@
 import circles from '../public/images/CirclesHeader.svg'
 import Image from 'next/image'
 import Link from 'next/link'
-
+import Newsletter from './Newsletter'
 
 export default function Hero2() {
   return (
@@ -55,7 +55,7 @@ export default function Hero2() {
             Let AI work for you today.
           </p>
           <div className="mt-8 flex justify-left gap-x-6">
-            <Link href='https://x.com/playbacknet' className='btn-slate btn-solid'>Request early access</Link>
+            <Newsletter />
             <Link className='btn-outline'
               href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
             >
