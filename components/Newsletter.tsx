@@ -25,6 +25,11 @@ export default function Newsletter({ }: React.ComponentPropsWithoutRef<"div">) {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`)
             }
+
+            setUsername('');
+            setEmail('');
+            setTwitterUrl('');
+
             const data = await response.json()
             console.log(data)
         } catch (error) {
