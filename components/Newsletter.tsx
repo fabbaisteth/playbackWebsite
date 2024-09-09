@@ -6,7 +6,7 @@ export default function Newsletter({ }: React.ComponentPropsWithoutRef<"div">) {
     let [username, setUsername] = useState('');
     let [email, setEmail] = useState('');
     let [twitterUrl, setTwitterUrl] = useState('');
-    let webHook = process.env.NEXT_PUBLIC_AIRTABLE_WEBHOOK;
+
     const toggleDialog = () => {
         setIsOpen(!isOpen);
     }
@@ -14,7 +14,7 @@ export default function Newsletter({ }: React.ComponentPropsWithoutRef<"div">) {
     async function submit(event) {
         event.preventDefault();
         try {
-            const response = await fetch(webHook, {
+            const response = await fetch('/api/airtableWebhook', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
