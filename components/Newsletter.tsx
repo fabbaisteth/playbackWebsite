@@ -4,6 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 export default function Newsletter({ }: React.ComponentPropsWithoutRef<"div">) {
     let [isOpen, setIsOpen] = useState(false);
     let [username, setUsername] = useState('');
+    let [successMessage, setSuccessMessage] = useState('');
     let [email, setEmail] = useState('');
     let [twitterUrl, setTwitterUrl] = useState('');
 
@@ -30,8 +31,9 @@ export default function Newsletter({ }: React.ComponentPropsWithoutRef<"div">) {
             setEmail('');
             setTwitterUrl('');
 
-            const data = await response.json()
-            console.log(data)
+            const data = await response.json();
+            console.log(data);
+            setSuccessMessage("We will notify you on on security clearance!");
         } catch (error) {
             console.error("An error has occured while submitting", error)
         }
@@ -45,7 +47,7 @@ export default function Newsletter({ }: React.ComponentPropsWithoutRef<"div">) {
                 className='btn-newsletter btn-red'
                 onClick={toggleDialog}
                 color="slate">
-                Request Authorization
+                Join Waitlist
             </button>
 
             <Transition appear show={isOpen} as={Fragment}>
@@ -82,61 +84,67 @@ export default function Newsletter({ }: React.ComponentPropsWithoutRef<"div">) {
                                     </Dialog.Title>
                                     <div className="w-full max-w-md">
                                         <div className="px-8 pt-2 pb-2">
+                                            {successMessage ?
+                                                (<p className="text-green-500 text-center text-xl mt-4 mb-4">
+                                                    {successMessage}
+                                                </p>
+                                                ) : (
 
+                                                    <form onSubmit={submit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                                                        <div className="mb-4">
+                                                            <label
+                                                                className="block text-gray-700 text-sm font-bold mb-2"
+                                                                htmlFor="username"
+                                                            >
+                                                                ████ Name
+                                                            </label>
+                                                            <input
+                                                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                                id="username"
+                                                                type="text"
+                                                                placeholder="Your Name"
+                                                                value={username}
+                                                                onChange={(e) => setUsername(e.target.value)}
+
+                                                            />
+                                                        </div>
+                                                        <div className="mb-4">
+                                                            <label
+                                                                className="block text-gray-700 text-sm font-bold mb-2"
+                                                                htmlFor="email"
+                                                            >
+                                                                E-███
+                                                            </label>
+                                                            <input
+                                                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                                id="email"
+                                                                type="email"
+                                                                placeholder="Example@playback.network"
+                                                                value={email}
+                                                                onChange={(e) => setEmail(e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="mb-4">
+                                                            <label
+                                                                className="block text-gray-700 text-sm font-bold mb-2"
+                                                                htmlFor="x.com profile"
+                                                            >
+                                                                X/Twitt██
+                                                            </label>
+                                                            <input
+                                                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                                id="x.com profile"
+                                                                type="url"
+                                                                placeholder="https://x.com/playbacknet"
+                                                                value={twitterUrl}
+                                                                onChange={(e) => setTwitterUrl(e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <button type="submit" className='btn-red btn-solid'
+                                                        >Get notified</button>
+                                                    </form>
+                                                )}
                                         </div>
-                                        <form onSubmit={submit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                                            <div className="mb-4">
-                                                <label
-                                                    className="block text-gray-700 text-sm font-bold mb-2"
-                                                    htmlFor="username"
-                                                >
-                                                    ████ Name
-                                                </label>
-                                                <input
-                                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    id="username"
-                                                    type="text"
-                                                    placeholder="Your Name"
-                                                    value={username}
-                                                    onChange={(e) => setUsername(e.target.value)}
-
-                                                />
-                                            </div>
-                                            <div className="mb-4">
-                                                <label
-                                                    className="block text-gray-700 text-sm font-bold mb-2"
-                                                    htmlFor="email"
-                                                >
-                                                    E-███
-                                                </label>
-                                                <input
-                                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    id="email"
-                                                    type="email"
-                                                    placeholder="Example@playback.network"
-                                                    value={email}
-                                                    onChange={(e) => setEmail(e.target.value)}
-                                                />
-                                            </div>
-                                            <div className="mb-4">
-                                                <label
-                                                    className="block text-gray-700 text-sm font-bold mb-2"
-                                                    htmlFor="x.com profile"
-                                                >
-                                                    X/Twitt██
-                                                </label>
-                                                <input
-                                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                                    id="x.com profile"
-                                                    type="url"
-                                                    placeholder="https://x.com/playbacknet"
-                                                    value={twitterUrl}
-                                                    onChange={(e) => setTwitterUrl(e.target.value)}
-                                                />
-                                            </div>
-                                            <button type="submit" className='btn-red btn-solid'
-                                            >Get notified</button>
-                                        </form>
                                         <p className="text-center text-gray-500 text-xs">
                                             &copy;2024 Playback Network. All rights reserved.
                                         </p>
