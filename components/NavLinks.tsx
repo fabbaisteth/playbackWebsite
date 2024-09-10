@@ -10,9 +10,8 @@ export function NavLinks() {
 
   return [
 
-    ["Market", "/#investor"],
-    ["Docs", "/#founder"],
-    ["FAQs", "/#faqs"],
+    ["██ X.com █", "https://x.com/playbacknet"],
+    ["Github ████", "https://github.com/playback-network"]
   ].map(([label, href], index) => (
     <Link
       key={label}

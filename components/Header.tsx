@@ -51,17 +51,18 @@ export default function Header() {
   return (
     <>
       <nav>
-        <Container className="relative z-50 flex justify-between py-4 bg-white/20 ring-1 ring-black/10 rounded-md">
+        <Container className="relative w-full z-50 flex justify-between py-4">
           <div className="relative z-10 flex items-center gap-16">
             <Link href="/" aria-label="Home">
-              <Image src="/images/logo_icon_big.png" alt="logo" width={60} height={60} />
+              <Image src="/images/logo_copy.jpg" alt="logo" width={160} height={80} />
             </Link>
           </div>
-          <div className="hidden lg:flex text-lefet lg:gap-10 self-center">
+          <div className="hidden lg:flex ml-auto items-center text-left lg:gap-10 self-center">
             <NavLinks />
+            <Newsletter className="hidden lg:block btn-outline" />
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-10">
             <Popover className="lg:hidden">
               {({ open }) => (
                 <>
@@ -93,21 +94,17 @@ export default function Header() {
                           className="fixed inset-x-0 top-0 z-0 origin-top rounded-b-2xl bg-gray-50 px-6 pb-6 pt-32 shadow-2xl shadow-gray-900/20"
                         >
                           <div className="space-y-8">
-                            <MobileNavLink href="/#features">
-                              Features
+                            <MobileNavLink href="https://x.com/playbacknet">
+                              ██ X.com █
                             </MobileNavLink>
-                            <MobileNavLink href="/#reviews">
-                              Reviews
+                            <MobileNavLink href="https://github.com/playback-network">
+                              Github ████
                             </MobileNavLink>
-                            <MobileNavLink href="/#blog">Blog</MobileNavLink>
-                            <MobileNavLink href="/#faqs">FAQs</MobileNavLink>
                             <MobileNavLink href="/#">
-
+                              <div className="mt-8 flex flex-row gap-4">
+                                <Newsletter />
+                              </div>
                             </MobileNavLink>
-
-                            <div className="mt-8 flex flex-row gap-4">
-                              <Newsletter />
-                            </div>
                           </div>
 
                         </Popover.Panel>
@@ -119,7 +116,6 @@ export default function Header() {
               }
             </Popover >
 
-            <Newsletter className="hidden lg:block btn-blue-outline btn-outline" />
           </div >
         </Container >
       </nav >

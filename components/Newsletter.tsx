@@ -42,10 +42,10 @@ export default function Newsletter({ }: React.ComponentPropsWithoutRef<"div">) {
     return (
         <>
             <button
-                className='btn-slate btn-solid'
+                className='btn-newsletter btn-red'
                 onClick={toggleDialog}
                 color="slate">
-                Request Early Access
+                Request Authorization
             </button>
 
             <Transition appear show={isOpen} as={Fragment}>
@@ -78,7 +78,7 @@ export default function Newsletter({ }: React.ComponentPropsWithoutRef<"div">) {
                                         as="h2"
                                         className="text-lg font-medium leading-6 text-gray-900"
                                     >
-                                        Subscribe
+                                        Security Clearance ████████████
                                     </Dialog.Title>
                                     <div className="w-full max-w-md">
                                         <div className="px-8 pt-2 pb-2">
@@ -90,7 +90,7 @@ export default function Newsletter({ }: React.ComponentPropsWithoutRef<"div">) {
                                                     className="block text-gray-700 text-sm font-bold mb-2"
                                                     htmlFor="username"
                                                 >
-                                                    Name
+                                                    ████ Name
                                                 </label>
                                                 <input
                                                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -107,7 +107,7 @@ export default function Newsletter({ }: React.ComponentPropsWithoutRef<"div">) {
                                                     className="block text-gray-700 text-sm font-bold mb-2"
                                                     htmlFor="email"
                                                 >
-                                                    Email
+                                                    E-███
                                                 </label>
                                                 <input
                                                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -123,7 +123,7 @@ export default function Newsletter({ }: React.ComponentPropsWithoutRef<"div">) {
                                                     className="block text-gray-700 text-sm font-bold mb-2"
                                                     htmlFor="x.com profile"
                                                 >
-                                                    X/Twitter
+                                                    X/Twitt██
                                                 </label>
                                                 <input
                                                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -134,7 +134,7 @@ export default function Newsletter({ }: React.ComponentPropsWithoutRef<"div">) {
                                                     onChange={(e) => setTwitterUrl(e.target.value)}
                                                 />
                                             </div>
-                                            <button type="submit" className='btn-slate btn-solid'
+                                            <button type="submit" className='btn-red btn-solid'
                                             >Get notified</button>
                                         </form>
                                         <p className="text-center text-gray-500 text-xs">
