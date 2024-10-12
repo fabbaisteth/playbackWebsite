@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useState } from "react";
 import { Popover } from "@headlessui/react";
 import { Container } from "./Container";
 import { NavLinks } from "./NavLinks";
@@ -48,6 +49,16 @@ function MobileNavLink(
 }
 
 export default function Header() {
+  const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
+
+  const openNewsletter = () => {
+    setIsNewsletterOpen(true);
+  };
+
+  const closeNewsletter = () => {
+    setIsNewsletterOpen(false);
+  };
+
   return (
     <>
       <nav>
@@ -59,7 +70,9 @@ export default function Header() {
           </div>
           <div className="hidden lg:flex ml-auto items-center text-left lg:gap-10 self-center">
             <NavLinks />
-            <Newsletter className="hidden lg:block btn-outline" />
+            <button onClick={openNewsletter} className="hidden lg:block btn-newsletter btn-red">
+              Join Waitlist
+            </button>
           </div>
 
           <div className="flex items-center gap-10">
@@ -101,9 +114,9 @@ export default function Header() {
                               Github ████
                             </MobileNavLink>
                             <MobileNavLink href="/#">
-                              <div className="mt-8 flex flex-row gap-4">
-                                <Newsletter />
-                              </div>
+                              <button onClick={openNewsletter} className="mt-8 btn-newsletter btn-red">
+                                Join Waitlist
+                              </button>
                             </MobileNavLink>
                           </div>
 
@@ -119,6 +132,10 @@ export default function Header() {
           </div >
         </Container >
       </nav >
+
+        {isNewsletterOpen && (
+        <Newsletter isOpen={isNewsletterOpen} closeModal={closeNewsletter} />
+      )}      
     </>
   );
 }

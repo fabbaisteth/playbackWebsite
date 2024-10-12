@@ -1,16 +1,11 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
-export default function Newsletter({ }: React.ComponentPropsWithoutRef<"div">) {
-    let [isOpen, setIsOpen] = useState(false);
+export default function Newsletter({isOpen, closeModal }) {
     let [username, setUsername] = useState('');
     let [successMessage, setSuccessMessage] = useState('');
     let [email, setEmail] = useState('');
     let [twitterUrl, setTwitterUrl] = useState('');
-
-    const toggleDialog = () => {
-        setIsOpen(!isOpen);
-    }
 
     async function submit(event) {
         event.preventDefault();
@@ -39,19 +34,10 @@ export default function Newsletter({ }: React.ComponentPropsWithoutRef<"div">) {
         }
     }
 
-
-
     return (
         <>
-            <button
-                className='btn-newsletter btn-red'
-                onClick={toggleDialog}
-                color="slate">
-                Join Waitlist
-            </button>
-
             <Transition appear show={isOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-10" onClose={toggleDialog}>
+                <Dialog as="div" className="relative z-10" onClose={closeModal}>
                     <Transition.Child
                         as={Fragment}
                         enter="ease-out duration-300"
