@@ -37,7 +37,7 @@ export default function Hero() {
                         More <span className="bg-black text-black p-1">████████████████████████████████ </span> will be released soon.
                     </p>
                     <p className="text-gray-500 text-md font-semibold">
-                        Oct 2024, 1700 CET
+                        Apr 2025, 1700 CET
                     </p>
                 </div>
                 <div className="fixed top-[50vh] left-[25vw] w-32 h-32 transform -rotate-6 z-0">
