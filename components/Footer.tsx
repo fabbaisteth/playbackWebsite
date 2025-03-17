@@ -19,7 +19,7 @@ export default function Footer() {
                   <p className="mt-1 text-sm">Let's create ████ ██████.</p>
                 </div>
               </div>
-              <p className="text-sm font-medium text-gray-900 mt-4 lg:mt-3">© 2024, Built ██ ████ 🖤</p>
+              <p className="text-sm font-medium text-gray-900 mt-4 lg:mt-3">© 2025, Built ██ ████ 🖤</p>
             </div>
             <div className="float-right flex self-end items-center">
               <nav className="mt-11 flex gap-8">
